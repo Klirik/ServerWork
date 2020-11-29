@@ -1,0 +1,13 @@
+ManifestFileVersion: 0
+CRC: 2095623129
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: standartmodel
+      Dependencies: {}
+    Info_1:
+      Name: neonmodel
+      Dependencies: {}
+    Info_2:
+      Name: bluemodel
+      Dependencies: {}

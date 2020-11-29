@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 587709304
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e288037541b9a6589efe424e335eb539
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 48588d4665caec2f7e5043b44056e090
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 02cd1a913822be3499d5ce93db1906cf, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/TestStandart.prefab
+Dependencies: []
