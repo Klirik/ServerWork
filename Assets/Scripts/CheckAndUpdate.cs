@@ -46,9 +46,6 @@ public class CheckAndUpdate : MonoBehaviour
         });
 
         assetBundleLoader.StartLoadSuperManifest(superBundleManifestLink, CheckManifest);
-
-        //File.Exists(CacheClass.namePath + name)
-        //AssetBundle.LoadFromFile(CacheClass.namePath + name);
     }
 
     private void StartLoadModel(string name)
@@ -57,18 +54,11 @@ public class CheckAndUpdate : MonoBehaviour
         hashesBundles.Add(hash);
         assetBundleLoader.StartLoadAsset(modelUrls[name], name, hash);
     }
-
-
-    private void OnLoadAsset(AssetBundle assetBundle)
-    {
-
-    }
          
     public void CheckManifest(string manifest)
     {        
         long crc = ParseCRC(manifest);
-        //AssetBundle.LoadFromFile(CacheClass.namePath, 0);
-
+        //TODO: можно и доделать...
     }
 
     //tested
@@ -78,21 +68,6 @@ public class CheckAndUpdate : MonoBehaviour
         var crcRow = manifest.Split("\n".ToCharArray())[1];
         var crc = long.Parse(crcRow.Split(':')[1].Trim());
         return crc;
-    }
-
-    public void CheckSuperBundle()
-    {
-        //superAssetBundle
-    }
-
-    private void CheckCache()
-    {
-        CacheClass.Init();
-
-        if (CacheClass.isInited)
-        {
-
-        }
     }
 }
 
@@ -106,17 +81,17 @@ public class CheckAndUpdate : MonoBehaviour
  * https://docs.unity3d.com/ScriptReference/BuildPipeline.GetCRCForAssetBundle.html
  * https://docs.unity3d.com/ScriptReference/Caching.html !!!
  
-1: я качаю супер-бандл и супер-манифест + говной. И сохраняю супер-бандл, супер-манифест в кэш
+1 вход: я качаю супер-манифест и супер-бандл. Сохраняю супер-бандл, супер-манифест в кэш
 
-2: я качаю супер-манифест, чекаю CRC;
+2 вход: я качаю супер-манифест, чекаю CRC;
 
 2.1: если CRC не изменилось - break.
 
 2.2: если CRC изменилось у супер-бандла - качаем супер-бандл
     
-2.2.1: качаем манифест всех говной из кеша.
+2.2.1: качаем манифест всех моделей из кеша.
 
 2.2.1.1: если CRC совпадают - break.
 
-2.2.1.2: если CRC не совпадают чистим кеш от стартого говной. И качаем новое говной и сохраняем.
+2.2.1.2: если CRC не совпадают чистим кеш от стартых моделей, качаем новые модели и сохраняем.
 */
