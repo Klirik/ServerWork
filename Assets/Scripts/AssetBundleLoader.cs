@@ -17,7 +17,7 @@ public class AssetBundleLoader : MonoBehaviour
 
     private IEnumerator LoadAssetBundle(string url, string name, Hash128 hash, Action<AssetBundle> onLoadAssetBundle)
     {
-        //TODO: чистка кеша от старого дерьма
+        //TODO: чистка кеша от старых моделей
         var request = UnityWebRequestAssetBundle.GetAssetBundle(url, hash);
         
         yield return request.SendWebRequest();
