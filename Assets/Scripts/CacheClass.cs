@@ -19,7 +19,7 @@ public static class CacheClass
             //сохранили место куда мы пишем и откуда получаем
             cache = Caching.AddCache(namePath);
 
-            //кешей может быть, но несколько, но пишу в один
+            //кешей может быть несколько, но пишем в один
             if (cache.valid)
             {
                 Caching.currentCacheForWriting = cache;
